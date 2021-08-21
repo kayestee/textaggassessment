@@ -1,5 +1,6 @@
 import com.textagg.controller.TextAggregator;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.textagg.utility.CountUtility;
 import com.textagg.utility.Counting;
@@ -28,7 +29,7 @@ public class TextAggregatorTest {
     public void testIfFileRead() {
         CountUtility cntObj = new CountUtility();
         String[] inStr = {"" , "txtinput.txt"};
-        assertEquals(true, cntObj.parseInput(inStr).size()>0);
+        assertTrue(cntObj.parseInput(inStr).size() > 0);
     }
 
     @Test
