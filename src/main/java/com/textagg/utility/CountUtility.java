@@ -73,7 +73,7 @@ public class CountUtility {
         return true;
     }
 
-    public Boolean parseOutputSec(String filename, Map<String, String> outputHash){
+    public Boolean parseOutputStr(String filename, Map<String, String> outputHash){
         try(BufferedWriter bufWriter = Files.newBufferedWriter(Path.of(filename) , StandardOpenOption.CREATE)){
             outputHash.forEach((k,v) -> {
                 try {
@@ -92,6 +92,4 @@ public class CountUtility {
         }
         return true;
     }
-
-
 }
