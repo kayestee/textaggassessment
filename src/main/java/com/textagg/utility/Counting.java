@@ -18,11 +18,16 @@ public class Counting
     public void countUniqueWords(List<String> inputList){
         final String outputFile = "1.out";
         HashMap<String, Integer> countMap = new HashMap<String, Integer>();
-        for (String token: inputList){
-            countMap.merge(token, 1,(x, y) -> Math.addExact(x, 1));
+        try{
+            for (String token: inputList){
+                countMap.merge(token, 1,(x, y) -> Math.addExact(x, 1));
+            }
+            CountUtility utilObj = new CountUtility();
+            utilObj.parseOutput(outputFile,countMap);
+        }catch (Exception ce){
+            ce.getStackTrace();
         }
-        CountUtility utilObj = new CountUtility();
-        utilObj.parseOutput(outputFile,countMap);
+
 
     }
 

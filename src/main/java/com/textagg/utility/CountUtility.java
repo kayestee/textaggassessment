@@ -42,6 +42,7 @@ public class CountUtility {
                         .collect(Collectors.toList());
             } catch (IOException fnfe) {
                 System.out.printf("Error Reading the file --> %s", fileName);
+                fnfe.getStackTrace();
             }
         } else if (!oper.equals("") && !fileName.equals("")) {
             System.out.println("Specify input as '-f <file name>' or pass input string as argument");
@@ -60,6 +61,7 @@ public class CountUtility {
                     bufWriter.write("\n");
                 } catch (IOException e) {
                     System.out.println("Unable to write to output file, check permissions");
+                    e.getStackTrace();
                 }
             });
             System.out.printf("Output written to file -> %s for 1st requirement \n ", filename);
@@ -85,6 +87,7 @@ public class CountUtility {
 
         } catch (IOException ioe){
             System.out.println("Unable to create output file, check permissions");
+            ioe.getStackTrace();
             return false;
         }
         return true;
