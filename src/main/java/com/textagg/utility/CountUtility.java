@@ -12,7 +12,6 @@ import java.util.stream.Stream;
 public class CountUtility {
 
 
-
     public String[] parseArgs(String[] args) {
         String[] operFileName = new String[2];
         if (args.length == 0 || args.length > 2) {
@@ -68,7 +67,7 @@ public class CountUtility {
                     e.getStackTrace();
                 }
             });
-            System.out.printf("Output written to file -> %s for 1st requirement \n ", filename);
+            System.out.printf("Output written to file -> %s \n ", filename);
 
         } catch (IOException ioe){
             System.out.println("Unable to create output file, check permissions");
@@ -87,7 +86,7 @@ public class CountUtility {
                     System.out.println("Unable to write to output file, check permissions");
                 }
             });
-            System.out.printf("Output written to file -> %s for 1st requirement \n ", filename);
+            System.out.printf("Output written to file -> %s \n ", filename);
 
         } catch (IOException ioe){
             System.out.println("Unable to create output file, check permissions");
