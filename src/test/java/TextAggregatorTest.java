@@ -24,6 +24,12 @@ public class TextAggregatorTest {
         return inputList;
     }
 
+    @Test
+    public void testIfFileRead() {
+        CountUtility cntObj = new CountUtility();
+        String[] inStr = {"" , "txtinput.txt"};
+        assertEquals(true, cntObj.parseInput(inStr).size()>0);
+    }
 
     @Test
     public void testUniqueWords() {

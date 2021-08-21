@@ -21,10 +21,17 @@ public class CountUtility {
         } else if (args.length == 1) {
             operFileName[0] = "";
             operFileName[1] = args[0];
+            if (args[0].equals("-f")) {
+                System.out.println("Specify input as '-f <file name>' or pass input string as argument");
+                System.exit(-1);
+            }
         } else {
             operFileName[0] = args[0];
             operFileName[1] = args[1];
-            if (!Files.exists(Path.of(args[1]))){
+            if (args[0].equals("-f") && args[1].equals("")) {
+                System.out.println("Specify input as '-f <file name>' or pass input string as argument");
+                System.exit(-1);
+            }else if (!Files.exists(Path.of(args[1]))){
                 System.out.printf("No file found with name %s \n", args[1]);
                 System.exit(-1);
             }
@@ -44,9 +51,6 @@ public class CountUtility {
                 System.out.printf("Error Reading the file --> %s", fileName);
                 fnfe.getStackTrace();
             }
-        } else if (!oper.equals("") && !fileName.equals("")) {
-            System.out.println("Specify input as '-f <file name>' or pass input string as argument");
-            System.exit(-1);
         } else {
             inputList = Stream.of(fileName.split("\\s+")).collect(Collectors.toList());
         }
