@@ -1,6 +1,5 @@
 package com.textagg.utility;
 
-import org.apache.commons.math3.stat.StatUtils;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -16,7 +15,6 @@ public class Counting
 {
 
     public Map<String, Integer> countUniqueWords(List<String> inputList){
-        final String outputFile = "1.out";
         Map<String, Integer> countMap = new HashMap<String, Integer>();
         try{
             for (String token: inputList){
@@ -31,9 +29,7 @@ public class Counting
 
     // This will result in 3 or more means substring of
     public Map<String, Integer> countUniquePhrases(List<String> inputList) {
-        final String outputFile = "2.out";
         HashMap<String, Integer> countMap = new HashMap<String, Integer>();
-        Set<String> strSet = new HashSet<>();
         int cnt = 2;
         while (cnt < inputList.size()) {
             for (int i = cnt; i < inputList.size(); i++) {
@@ -42,14 +38,14 @@ public class Counting
             }
             cnt++;
         }
-        Map<String, Integer> filteredCountMap = countMap.entrySet().stream().filter(val -> val.getValue() > 1).
+        Map<String, Integer> filteredCountMap = countMap.entrySet().stream()
+                                                    .filter(val -> val.getValue() > 1).
                 collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
        return filteredCountMap;
     }
 
 
     public Map<String, String>  countUniqueNumbers(List<String> inputList){
-        final String outputFile = "3.out";
         Map<String, String> countMap = new HashMap<String, String>();
         for (String token: inputList){
             if (token.strip().matches("^[\\d]+$")){
